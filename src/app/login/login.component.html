@@ -1,0 +1,33 @@
+<h2>Welcome! Login to continue.</h2>
+<div class="container">
+    <div class="cont">
+        <form [formGroup]="form" (ngSubmit) = "gonder($event)">
+            <div class="input">
+                <label for="name">Username: </label>
+                <input formControlName="user_name" type="text" placeholder="Your name..">
+            </div>
+            <div class="input" *ngIf="form.get('user_name').touched && form.get('user_name').invalid">
+                <div *ngIf="form.get('user_name').errors.required">Name is required!</div>
+                <div *ngIf="form.get('user_name').errors.minlength">Name should be minimum 6 characters!</div>
+                <div *ngIf="form.get('user_name').errors.pattern">You can not use special characters!</div>
+            </div>
+
+            <div class="input">
+                <label for="password">Password: </label>
+                <input formControlName="password" type="password" placeholder="Your last name..">
+            </div>
+            <div class="input" *ngIf="form.get('password').touched && form.get('password').invalid">
+                <div *ngIf="form.get('password').errors.required">Password is required!</div>
+                <div *ngIf="form.get('password').errors.minlength">password should be minimum 6 characters!</div>
+
+            </div>
+            <div>
+                <button type="submit" [disabled]="!form.valid">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="welcome" *ngIf="welcome">
+       Wrong name or password!
+    </div>
+</div>
