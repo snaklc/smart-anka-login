@@ -1,4 +1,4 @@
-<h2>Welcome! Login to continue.</h2>
+<h1>Welcome! Login to continue.</h1>
 <div class="container">
     <div class="cont">
         <form [formGroup]="form" (ngSubmit) = "gonder($event)">
@@ -7,9 +7,9 @@
                 <input formControlName="user_name" type="text" placeholder="Your name..">
             </div>
             <div class="input" *ngIf="form.get('user_name').touched && form.get('user_name').invalid">
-                <div *ngIf="form.get('user_name').errors.required">Name is required!</div>
-                <div *ngIf="form.get('user_name').errors.minlength">Name should be minimum 6 characters!</div>
-                <div *ngIf="form.get('user_name').errors.pattern">You can not use special characters!</div>
+                <div class="warning" *ngIf="form.get('user_name').errors.required">Name is required!</div>
+                <div class="warning" *ngIf="form.get('user_name').errors.minlength">Name should be minimum 6 characters!</div>
+                <div class="warning" *ngIf="form.get('user_name').errors.pattern">You can not use special characters!</div>
             </div>
 
             <div class="input">
@@ -17,17 +17,13 @@
                 <input formControlName="password" type="password" placeholder="Your last name..">
             </div>
             <div class="input" *ngIf="form.get('password').touched && form.get('password').invalid">
-                <div *ngIf="form.get('password').errors.required">Password is required!</div>
-                <div *ngIf="form.get('password').errors.minlength">password should be minimum 6 characters!</div>
+                <div class="warning" *ngIf="form.get('password').errors.required">Password is required!</div>
+                <div class="warning" *ngIf="form.get('password').errors.minlength">password should be minimum 6 characters!</div>
 
             </div>
             <div>
                 <button type="submit" [disabled]="!form.valid">Login</button>
             </div>
         </form>
-    </div>
-
-    <div class="welcome" *ngIf="welcome">
-       Wrong name or password!
     </div>
 </div>

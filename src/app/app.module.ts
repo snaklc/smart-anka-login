@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './auth-guard/auth.guard';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AuthGuard } from './auth-guard/auth.guard';
     SuperadminComponent,
     SuperoperatorComponent,
     CompanyComponent,
-    LoginComponent
+    LoginComponent,
+    SnackbarComponent
   ],
   imports: [
     HttpClientModule, 
